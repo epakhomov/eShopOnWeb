@@ -29,10 +29,10 @@ steps:
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: 'Win32'
+    platform: 'MSBuild.exe Solution.sln /p:Configuration=Debug /p:Platform="Any CPU"'
     configuration: '$(buildConfiguration)'
 
 - task: VSTest@2
   inputs:
-    platform: 'Win32'
+    platform: 'MSBuild.exe Solution.sln /p:Configuration=Debug /p:Platform="Any CPU"'
     configuration: '$(buildConfiguration)'
